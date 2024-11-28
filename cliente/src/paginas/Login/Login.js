@@ -15,33 +15,32 @@ const LoginPage = () => {
   };
 
   // Função para lidar com a submissão do formulário
-const handleSubmit = async (event) => {
-  event.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-  try {
-    const response = await fetch("http://localhost:3001/api/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ usuario_sec: usuario, senha_sec: senha }),
-    });
+    try {
+      const response = await fetch("http://localhost:3001/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ usuario_sec: usuario, senha_sec: senha }),
+      });
 
-    // Verificar a resposta da API
-    const data = await response.json();
-    console.log("Resposta da API:", data); // Verifique o que a API retornou
+      // Verificar a resposta da API
+      const data = await response.json();
+      console.log("Resposta da API:", data); // Verifique o que a API retornou
 
-    if (response.ok) {
-      navigate("/inicio");
-    } else {
-      setErro(data.message || "Erro no login"); // Caso haja erro no login
+      if (response.ok) {
+        navigate("/inicio");
+      } else {
+        setErro(data.message || "Erro no login"); // Caso haja erro no login
+      }
+    } catch (err) {
+      console.error("Erro de conexão:", err);
+      setErro("Erro ao tentar fazer login");
     }
-  } catch (err) {
-    console.error("Erro de conexão:", err);
-    setErro("Erro ao tentar fazer login");
-  }
-};
-
+  };
 
   return (
     <section className="container">

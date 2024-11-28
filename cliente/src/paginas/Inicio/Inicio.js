@@ -43,8 +43,12 @@ function Menu() {
       {isMenuVisible && (
         <nav className="menu">
           <ul>
-            <li onClick={() => (window.location.href = "calendario")}>Calendário</li>
-            <li onClick={() => (window.location.href = "cadastro")}>Cadastro</li>
+            <li onClick={() => (window.location.href = "calendario")}>
+              Calendário
+            </li>
+            <li onClick={() => (window.location.href = "cadastro")}>
+              Cadastro
+            </li>
           </ul>
         </nav>
       )}

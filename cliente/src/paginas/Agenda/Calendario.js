@@ -85,9 +85,9 @@ function Calendario() {
     navigate("/cadastro");
   };
 
-    const handleNavigateToInicio = () => {
+  const handleNavigateToInicio = () => {
     navigate("/inicio");
-    };
+  };
 
   return (
     <div className="tela ">
@@ -105,10 +105,9 @@ function Calendario() {
         <button onClick={handleNavigateToCadastro} className="botao-cadastro">
           Ir para Cadastro
         </button>
-         <button className="botao-cadastro" onClick={handleNavigateToInicio}
-          >
-            Voltar ao Início
-          </button>
+        <button className="botao-cadastro" onClick={handleNavigateToInicio}>
+          Voltar ao Início
+        </button>
       </div>
 
       <div className="calendario">
