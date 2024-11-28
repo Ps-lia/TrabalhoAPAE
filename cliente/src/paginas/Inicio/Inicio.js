@@ -43,34 +43,8 @@ function Menu() {
       {isMenuVisible && (
         <nav className="menu">
           <ul>
-            <li onClick={() => (window.location.href = "agenda.html")}>
-              Agenda
-            </li>
-            <li onClick={() => (window.location.href = "cadastro_aluno.html")}>
-              Cadastro Aluno
-            </li>
-            <li
-              onClick={() =>
-                (window.location.href = "cadastro_profissional.html")
-              }
-            >
-              Cadastro Profissional
-            </li>
-            <li
-              onClick={() => (window.location.href = "visualizar_aluno.html")}
-            >
-              Visualizar Aluno
-            </li>
-            <li
-              onClick={() =>
-                (window.location.href = "visualizar_profissional.html")
-              }
-            >
-              Visualizar Profissional
-            </li>
-            <li onClick={() => (window.location.href = "agendamento.html")}>
-              Agendamento
-            </li>
+            <li onClick={() => (window.location.href = "calendario")}>Calendário</li>
+            <li onClick={() => (window.location.href = "cadastro")}>Cadastro</li>
           </ul>
         </nav>
       )}

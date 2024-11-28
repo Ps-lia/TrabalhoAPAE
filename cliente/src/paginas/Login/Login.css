@@ -10,7 +10,7 @@ body {
   align-items: center;
   height: 100vh;
 }
-
+  
 /* Container principal */
 .container {
   display: flex;
