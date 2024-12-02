@@ -9,3 +9,25 @@ CREATE TABLE secretaria (
 
 INSERT INTO secretaria (usuario_sec, senha_sec) 
 VALUES ('admin', 'admin123');
+
+
+
+-- criação da tabela aluno
+
+CREATE TABLE IF NOT EXISTS alunos (
+  codigo SERIAL PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  cpf VARCHAR(14) UNIQUE NOT NULL,
+  logradouro VARCHAR(150),
+  numero VARCHAR(10),
+  bairro VARCHAR(50),
+  cidade VARCHAR(50),
+  uf CHAR(2),
+  cep VARCHAR(10),
+  nascimento DATE,
+  telefone VARCHAR(15),
+  nome_responsavel VARCHAR(100),
+  cpf_responsavel VARCHAR(14),
+  telefone_responsavel VARCHAR(15),
+  email_responsavel VARCHAR(100)
+);
