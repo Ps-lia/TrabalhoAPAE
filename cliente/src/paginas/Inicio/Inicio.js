@@ -1,64 +1,63 @@
 import React, { useState } from "react";
-import "./Inicio.css"; // Importação do CSS
+import "./InicioPage.css"; // Importação do CSS exclusivo
 
-function Menu() {
-  const [isMenuVisible, setIsMenuVisible] = useState(false);
-  const [isModalVisible, setIsModalVisible] = useState(false);
+function InicioPage() {
+  const [menuVisivel, setMenuVisivel] = useState(false);
+  const [modalVisivel, setModalVisivel] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuVisible((prev) => !prev);
+  const alternarMenu = () => {
+    setMenuVisivel((prev) => !prev); // Alterna a visibilidade do menu
   };
 
-  const handleLogout = () => {
-    setIsModalVisible(true);
+  const abrirModalLogout = () => {
+    setModalVisivel(true);
   };
 
-  const confirmLogout = () => {
+  const confirmarLogout = () => {
     window.location.href = "/"; // Redireciona para a página de login
   };
 
-  const cancelLogout = () => {
-    setIsModalVisible(false);
+  const cancelarLogout = () => {
+    setModalVisivel(false);
   };
 
   return (
-    <div className="app">
-      <header>
+    <div className="inicio-app">
+      <header className="inicio-header">
         <button
-          className="toggle-btn"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
+          className="inicio-toggle-btn"
+          onClick={alternarMenu}
+          aria-label="Alternar menu"
         >
-          <div className="hamburger">
-            <span className="line"></span>
-            <span className="line"></span>
-            <span className="line"></span>
+          <div className="inicio-hamburger">
+            <span className="inicio-line"></span>
+            <span className="inicio-line"></span>
+            <span className="inicio-line"></span>
           </div>
         </button>
-        <button className="logout-btn" onClick={handleLogout}>
+        <button className="inicio-logout-btn" onClick={abrirModalLogout}>
           Sair
         </button>
       </header>
 
-      {isMenuVisible && (
-        <nav className="menu">
-          <ul>
-            <li onClick={() => (window.location.href = "calendario")}>
-              Calendário
-            </li>
-            <li onClick={() => (window.location.href = "cadastro")}>
-              Cadastro
-            </li>
-          </ul>
-        </nav>
-      )}
+      {/* Alterando a forma de renderizar o menu */}
+      <nav className={`inicio-menu ${menuVisivel ? "show" : ""}`}>
+        <ul>
+          <li onClick={() => (window.location.href = "/calendario")}>
+            Calendário
+          </li>
+          <li onClick={() => (window.location.href = "/cadastro")}>
+            Novo Cadastro
+          </li>
+        </ul>
+      </nav>
 
-      {isModalVisible && (
-        <div className="modal">
-          <div className="modal-content">
+      {modalVisivel && (
+        <div className="inicio-modal">
+          <div className="inicio-modal-content">
             <h2>Você realmente deseja sair?</h2>
-            <button onClick={confirmLogout}>Sim</button>
-            <button onClick={cancelLogout}>Não</button>
+            <button onClick={confirmarLogout}>Sim</button>
+            <button onClick={cancelarLogout}>Não</button>
           </div>
         </div>
       )}
@@ -66,4 +65,4 @@ function Menu() {
   );
 }
 
-export default Menu;
+export default InicioPage;

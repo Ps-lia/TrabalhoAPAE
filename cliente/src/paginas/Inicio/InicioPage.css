@@ -1,0 +1,132 @@
+/* Estilos do Header */
+.inicio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2f6b2f; /* Verde escuro */
+  padding: 10px 20px;
+  color: white;
+}
+
+.inicio-toggle-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.inicio-hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 25px;
+  height: 20px;
+}
+
+.inicio-line {
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  transition: 0.3s ease-in-out;
+}
+
+/* Quando o menu está visível, mudamos o visual do hambúrguer */
+.inicio-hamburger.ativo .inicio-line:nth-child(1) {
+  transform: rotate(45deg);
+  position: relative;
+  top: 7px;
+}
+
+.inicio-hamburger.ativo .inicio-line:nth-child(2) {
+  opacity: 0;
+}
+
+.inicio-hamburger.ativo .inicio-line:nth-child(3) {
+  transform: rotate(-45deg);
+  position: relative;
+  top: -7px;
+}
+
+/* Estilos do menu */
+.inicio-menu {
+  display: none;
+  background-color: #2e7031; /* Verde médio */
+  position: absolute;
+  top: 60px;
+  left: -200px; /* Inicia fora da tela à esquerda */
+  width: 200px;
+  padding: 10px;
+  border-radius: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.inicio-menu.show {
+  display: block;
+  transform: translateX(200px); /* Desliza o menu para dentro da tela */
+}
+
+.inicio-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.inicio-menu li {
+  padding: 10px;
+  border-bottom: 1px solid #3e8e41; /* Verde mais claro para a borda */
+  cursor: pointer;
+  color: white;
+}
+
+.inicio-menu li:hover {
+  background-color: #3e8e41; /* Verde claro para hover */
+}
+
+/* Estilos do botão de logout */
+.inicio-logout-btn {
+  background: none;
+  color: white;
+  border: 1px solid white;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.inicio-logout-btn:hover {
+  background-color: #4a944a; /* Verde mais claro para hover */
+}
+
+/* Estilos do modal */
+.inicio-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(157, 184, 157, 0.7); /* Fundo escuro com tom de verde */
+}
+
+.inicio-modal-content {
+  background-color: #ffffff; /* Fundo branco para o modal */
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  color: #2f6b2f; /* Cor do texto em verde escuro */
+}
+
+.inicio-modal-content button {
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #4a944a; /* Cor de fundo do botão em verde */
+  border: none;
+  color: white;
+}
+
+.inicio-modal-content button:hover {
+  background-color: #2e7031; /* Hover em verde mais escuro */
+}
