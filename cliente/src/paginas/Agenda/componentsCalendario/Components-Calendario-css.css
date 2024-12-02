@@ -1,49 +1,56 @@
-.tela{
+.tela {
     display: flex;
-    background-color: #262626;
+    background-color: #e5f2e6; /* Fundo mais claro, suave */
 }
 
-.calendario{
+.calendario {
     height: 100vh;
     width: 80%;
     overflow: auto;
 }
-.toolbar{
+
+.toolbar {
     height: 100vh;
     width: 20%;
     min-width: 300px;
-    color: #ffffff;
-    background-color: #1a1a1a;
-    border-right: 1px solid #bbb;
+    color: #fff;
+    background-color: #3a6e48; /* Verde mais forte para a barra lateral */
+    border-right: 1px solid #4c7c56; /* Cor suave de borda */
+    display: flex;
+    flex-direction: column;
 }
-/*HEADER MOD*/
-.toolbar-container{
+
+.toolbar-container {
     display: flex;
     height: 10vh;
     align-items: center;
-    padding-left: 50px;
-}
-.mesAno{
-    width: 50%;
-    color: #f3f3f3;
-    justify-content: flex-start;
-}
-.dirtop{
-    width: 50%;
-    justify-content: end;
-    display: flex;
-    align-items: center;
-    padding-right: 50px;
+    padding-left: 30px;
+    color: #f1f1f1; /* Texto suave */
 }
 
-/* MODAL */
+.mesAno {
+    width: 50%;
+    color: #0e3314;
+    justify-content: flex-start;
+    font-weight: bold;
+}
+
+.dirtop {
+    width: 50%;
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    padding-right: 30px;
+}
+
+/* Modal */
 .modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.578);
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo escuro para o modal */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,95 +58,110 @@
 }
 
 .modal-content {
-    background-color: aliceblue;
+    background-color: #ffffff; /* Fundo branco para o modal */
     padding: 20px;
-    border-radius: 6px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.081);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
     z-index: 10000;
 }
 
-
-/*Calendario*/
-/*Header e botoes*/
-.rbc-toolbar{
+/* Calendário */
+/* Header e Botões */
+.rbc-toolbar {
     height: 10vh;
-    color: #bbb;
-    font-size: 25px;
-}
-.rbc-btn-group > button{
-    border: 0;
-}
-.rbc-toolbar button{
-    color: #cecece;
-    border: 1px solid #cccccc4f;
-}
-.rbc-toolbar button:active,
-.rbc-toolbar button.rbc-active{
-    background-color: #56565686;
-    border-color: #bbb;
+    color: #4c7c56; /* Cor verde suave para o texto */
+    font-size: 24px;
 }
 
-/*Corpo*/
-/*Linhas*/
-.rbc-month-view{
-    border-color: #eeeeee5f;
+.rbc-btn-group > button {
+    border: none;
 }
-.rbc-month-row+ .rbc-month-row {
-    border-color: #dddddd73;
+
+.rbc-toolbar button {
+    color: #4c7c56; /* Verde suave para os botões */
+    border: 1px solid #6a9d74; /* Bordas mais claras */
+    padding: 8px 15px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
 }
+
+.rbc-toolbar button:hover {
+    background-color: #7cb88b; /* Verde mais claro ao passar o mouse */
+    border-color: #8cbb9f;
+}
+
+.rbc-toolbar button:active,
+.rbc-toolbar button.rbc-active {
+    background-color: #3a6e48; /* Verde escuro quando ativo */
+    border-color: #4c7c56;
+}
+
+/* Corpo do calendário */
+.rbc-month-view {
+    border-color: #c7e6d1; /* Borda clara para o mês */
+}
+
+.rbc-month-row + .rbc-month-row {
+    border-color: #c7e6d1; /* Linhas suaves */
+}
+
 .rbc-day-bg + .rbc-day-bg {
-    border-color: #dddddd73;
+    border-color: #c7e6d1;
 }
-/*Mes*/
-.rbc-header{
-    color: #eeeeeeee;
-    border-color: #dddddd73;
+
+.rbc-header {
+    color: #ffffff; /* Texto branco para os cabeçalhos */
+    background-color: #4c7c56; /* Verde forte para os cabeçalhos */
+    border-color: #6a9d74;
 }
-.rbc-header + .rbc-header{
-    border-top: 0px;
-    border-left: 0px;
-    border-right: 0px;
-    border-color: #dddddd73;
+
+.rbc-off-range-bg {
+    background-color: #d9e9d0; /* Fundo mais suave para dias fora do mês */
 }
-.rbc-off-range-bg{
-    background-color: #313131;
+
+.rbc-today {
+    background-color: #7cb88b; /* Fundo verde claro para o dia de hoje */
 }
-.rbc-today{
-    background-color: #1a1a1a;
-}
-.rbc-button-link{
+
+.rbc-button-link {
     margin: 5px;
-    font-size: 15px;
-    color: #eeeeeee5;
+    font-size: 14px;
+    color: #4c7c56; /* Verde suave para links */
 }
-.rbc-off-range .rbc-button-link{
-    color: #eeeeee37;
+
+.rbc-off-range .rbc-button-link {
+    color: #6a9d74; /* Links para dias fora do mês */
 }
-.rbc-now .rbc-button-link{
-    background-color: #f15550;
-    color: #ffffff;
-    border-radius: 2px;
-    padding-left: 2px;
-    padding-right: 2px;
-    margin: 5px;
+
+.rbc-now .rbc-button-link {
+    background-color: #5a8f64; /* Verde mais forte para o link "agora" */
+    color: #fff;
+    border-radius: 4px;
+    padding: 6px 10px;
     font-size: 16px;
 }
-.rbc-time-content,.rbc-time-content > .rbc-day-slot,.rbc-timeslot-group, .rbc-time-slot{
-    color: #bbb;
-    border-color: #b0b0b036;
+
+.rbc-time-content, .rbc-time-content > .rbc-day-slot, .rbc-timeslot-group, .rbc-time-slot {
+    color: #4c7c56; /* Verde suave para o conteúdo */
+    border-color: #7cb88b; /* Cor de borda mais clara */
 }
-.rbc-day-slot .rbc-time-slot{
-    border-top: 1px solid #c8c8c80a;
+
+.rbc-day-slot .rbc-time-slot {
+    border-top: 1px solid #8cbb9f; /* Linha sutil para o horário */
 }
-/*Agenda*/
-.rbc-agenda-content, .rbc-agenda-view{
-    color: #aaa;
+
+/* Agenda */
+.rbc-agenda-content, .rbc-agenda-view {
+    color: #4c7c56; /* Verde suave para o texto da agenda */
 }
-.rbc-agenda-date-cell, .rbc-agenda-time-cell{
-    background-color: #262626;
+
+.rbc-agenda-date-cell, .rbc-agenda-time-cell {
+    background-color: #e5f2e6; /* Fundo claro e suave para a agenda */
 }
-.rbc-agenda-event-cell{
+
+.rbc-agenda-event-cell {
     border-radius: 20px;
     font-weight: bold;
-    color: #e0e0e0;
+    color: #fff; /* Texto branco para os eventos */
+    background-color: #5a8f64; /* Verde mais forte para os eventos */
 }

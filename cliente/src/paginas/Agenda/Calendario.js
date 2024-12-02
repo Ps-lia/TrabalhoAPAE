@@ -14,7 +14,12 @@ import Adicionar from "./componentsCalendario/adicionar/Adicionar.js";
 import CustomTollbar from "./componentsCalendario/CustomCalendar/CustomToolbar.js";
 import FiltroAtividades from "./componentsCalendario/filtro/FiltroAtividades.js";
 
+// Importando o locale pt-br
+import "moment/locale/pt-br";
+
 const DragAndDropCalendar = withDragAndDrop(Calendar);
+
+// Configurando o localizador do momento para pt-br
 const localizer = momentLocalizer(moment);
 
 function Calendario() {
@@ -54,19 +59,19 @@ function Calendario() {
   };
 
   const handleAdicionar = (novoEvento) => {
-    //Logica do banco
+    // Lógica do banco
     setEventos([...eventos, { ...novoEvento, id: eventos.length + 1 }]);
   };
 
   const handleEventDelete = (eventId) => {
-    //Logica do banco
+    // Lógica do banco
     const updatedEvents = eventos.filter((event) => event.id !== eventId);
     setEventos(updatedEvents);
     SeteventoSelecionado(null);
   };
 
   const handleEventUpdate = (updatedEvent) => {
-    //Logica do banco
+    // Lógica do banco
     const updatedEvents = eventos.map((event) => {
       if (event.id === updatedEvent.id) {
         return updatedEvent;
@@ -125,6 +130,7 @@ function Calendario() {
             toolbar: CustomTollbar,
           }}
           className="calendar"
+          culture="pt-br" // Alterando para pt-br
         />
       </div>
       {eventoSelecionado && (
