@@ -22,7 +22,10 @@ function Cadastro() {
     telefone: "",
     telefoneResponsavel: "",
     email: "",
-    responsavel: "",
+    responsavel_nome: "",
+    responsavel_cpf: "",
+    responsavel_telefone: "",
+    responsavel_email: "",
   });
 
   const [selectedOption, setSelectedOption] = useState("");
@@ -51,6 +54,62 @@ function Cadastro() {
     }
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (selectedOption === "Aluno") {
+      try {
+        const response = await fetch(
+          "http://localhost:3001/api/cadastro/aluno",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          }
+        );
+
+
+        const data = await response.json();
+
+        if (response.ok) {
+          alert(data.message); // Exibe a mensagem de sucesso
+          navigate("/calendario"); // Redireciona para o calendário
+        } else {
+          alert(data.message || "Erro ao cadastrar o aluno!");
+        }
+      } catch (error) {
+        console.error("Erro ao enviar os dados:", error);
+        alert("Erro ao conectar com o servidor.");
+      }
+    } else {
+      alert("Selecione a opção 'Aluno' para salvar o cadastro.");
+    }
+  };
+
+  const handleClear = () => {
+    setFormData({
+      codigo: "",
+      nome: "",
+      cpf: "",
+      logradouro: "",
+      bairro: "",
+      cidade: "",
+      numero: "",
+      cep: "",
+      uf: "",
+      nascimento: "",
+      telefone: "",
+      telefoneResponsavel: "",
+      email: "",
+      responsavel_nome: "",
+      responsavel_cpf: "",
+      responsavel_telefone: "",
+      responsavel_email: "",
+    });
+  };
+
   return (
     <div className="container mt-4">
       <h2 className="mb-4">Cadastro</h2>
@@ -66,7 +125,7 @@ function Cadastro() {
         <Dropdown.Item eventKey="Especialidade">Especialidade</Dropdown.Item>
       </DropdownButton>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         {renderFormContent()}
 
         <div className="mt-4">
@@ -79,10 +138,17 @@ function Cadastro() {
           <button type="button" className="btn btn-danger me-2">
             Excluir
           </button>
-          <button type="button" className="btn btn-secondary me-2">
+          <button
+            type="button"
+            className="btn btn-secondary me-2"
+            onClick={handleClear}
+          >
             Limpar
           </button>
-          <button type="button" className="btn btn-info" onClick={() => navigate("/calendario")}
+          <button
+            type="button"
+            className="btn btn-info"
+            onClick={() => navigate("/calendario")}
           >
             Voltar ao Calendário
           </button>
