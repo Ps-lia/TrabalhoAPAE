@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const autenticacaoRotas = require("./controladores/autenticacaoControlador"); // Importando o controlador de autenticação
+const alunoRotas = require("./rotas/alunoRotas");
 
 const app = express();
 
@@ -17,10 +18,19 @@ app.use(cors({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Definindo a rota de login
-app.use("/api", autenticacaoRotas);
+// Rotas
+app.use("/api", autenticacaoRotas); // Rota de autenticação
+app.use("/api", alunoRotas);// Rota de alunos com namespace mais claro
 
-// Iniciar o servidor na porta 3001
-app.listen(3001, () => {
-  console.log("Servidor rodando na porta 3001");
+// Middleware para rotas inexistentes
+app.use((req, res, next) => {
+  res.status(404).json({ message: "Rota não encontrada" });
 });
+
+// Middleware para tratar erros gerais
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: "Ocorreu um erro no servidor" });
+});
+
+module.exports = app;
