@@ -53,7 +53,7 @@ function Aluno({ formData, handleChange }) {
             <div className="row mb-3">
                 <div className="col-md-4">
                     <label>Data de Nascimento</label>
-                    <input type="date" className="form-control" name="dataNascimento" value={formData.dataNascimento} onChange={handleChange} />
+                    <input type="date" className="form-control" name="nascimento" value={formData.nascimento} onChange={handleChange} />
                 </div>
                 <div className="col-md-4">
                     <label>Telefone</label>
@@ -66,19 +66,19 @@ function Aluno({ formData, handleChange }) {
 
                  <div className="col-md-3">
                     <label>Nome</label>
-                    <input type="text" className="form-control" name="responsavel" value={formData.responsavel} onChange={handleChange} />
+                    <input type="text" className="form-control" name="responsavel_nome" value={formData.responsavel_nome} onChange={handleChange} />
                 </div>
                 <div className="col-md-3">
                     <label>CPF</label>
-                    <input type="text" className="form-control" name="cpfr" value={formData.cpfr} onChange={handleChange} />
+                    <input type="text" className="form-control" name="responsavel_cpf" value={formData.responsavel_cpf} onChange={handleChange} />
                 </div>
                 <div className="col-md-4">
                     <label>Telefone</label>
-                    <input type="text" className="form-control" name="telefoner" value={formData.telefoner} onChange={handleChange} />
+                    <input type="text" className="form-control" name="responsavel_telefone" value={formData.responsavel_telefone} onChange={handleChange} />
                 </div>
                 <div className="col-md-6">
                     <label>Email</label>
-                    <input type="email" className="form-control" name="email" value={formData.email} onChange={handleChange} />
+                    <input type="email" className="form-control" name="responsavel_email" value={formData.responsavel_email} onChange={handleChange} />
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 // servidor/modelos/Aluno.js
-const { pool } = require("../configuracoes/bancoDados"); // Importando a configuração do banco de dados
+const pool = require("../configuracoes/bancoDados"); // Importando a configuração do banco de dados
 
 // Função para criar um novo aluno
 const criarAluno = async (alunoData) => {
@@ -12,20 +12,19 @@ const criarAluno = async (alunoData) => {
     cidade,
     uf,
     cep,
-    data_nascimento,
+    nascimento,
     telefone,
-    email,
-    responsavel_nome,
-    responsavel_cpf,
-    responsavel_telefone,
-    responsavel_email,
+    nome_responsavel,
+    cpf_responsavel,
+    telefone_responsavel,
+    email_responsavel,
   } = alunoData;
 
   try {
     const result = await pool.query(
       `
-      INSERT INTO alunos (nome, cpf, logradouro, numero, bairro, cidade, uf, cep, data_nascimento, telefone, email, responsavel_nome, responsavel_cpf, responsavel_telefone, responsavel_email)
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)
+      INSERT INTO alunos (nome, cpf, logradouro, numero, bairro, cidade, uf, cep, nascimento, telefone, nome_responsavel, cpf_responsavel, telefone_responsavel, email_responsavel)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
       RETURNING *;
     `,
       [
@@ -37,13 +36,12 @@ const criarAluno = async (alunoData) => {
         cidade,
         uf,
         cep,
-        data_nascimento,
+        nascimento,
         telefone,
-        email,
-        responsavel_nome,
-        responsavel_cpf,
-        responsavel_telefone,
-        responsavel_email,
+        nome_responsavel,
+        cpf_responsavel,
+        telefone_responsavel,
+        email_responsavel,
       ]
     );
     return result.rows[0]; // Retorna o aluno inserido
@@ -86,13 +84,12 @@ const editarAluno = async (id, alunoData) => {
     cidade,
     uf,
     cep,
-    data_nascimento,
+    nascimento,
     telefone,
-    email,
-    responsavel_nome,
-    responsavel_cpf,
-    responsavel_telefone,
-    responsavel_email,
+    nome_responsavel,
+    cpf_responsavel,
+    telefone_responsavel,
+    email_responsavel,
   } = alunoData;
 
   try {
@@ -107,14 +104,13 @@ const editarAluno = async (id, alunoData) => {
         cidade = $6,
         uf = $7,
         cep = $8,
-        data_nascimento = $9,
+        nascimento = $9,
         telefone = $10,
-        email = $11,
-        responsavel_nome = $12,
-        responsavel_cpf = $13,
-        responsavel_telefone = $14,
-        responsavel_email = $15
-      WHERE id = $16
+        nome_responsavel = $11,
+        cpf_responsavel = $12,
+        telefone_responsavel = $13,
+        email_responsavel = $14
+      WHERE id = $15
       RETURNING *;
     `,
       [
@@ -126,13 +122,12 @@ const editarAluno = async (id, alunoData) => {
         cidade,
         uf,
         cep,
-        data_nascimento,
+        nascimento,
         telefone,
-        email,
-        responsavel_nome,
-        responsavel_cpf,
-        responsavel_telefone,
-        responsavel_email,
+        nome_responsavel,
+        cpf_responsavel,
+        telefone_responsavel,
+        email_responsavel,
         id,
       ]
     );

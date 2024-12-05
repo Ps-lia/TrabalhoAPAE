@@ -33,4 +33,9 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: "Ocorreu um erro no servidor" });
 });
 
+// Iniciar o servidor na porta 3001
+app.listen(3001, () => {
+  console.log("Servidor rodando na porta 3001");
+});
+
 module.exports = app;

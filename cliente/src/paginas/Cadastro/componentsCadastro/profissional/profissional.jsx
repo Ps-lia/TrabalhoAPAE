@@ -52,7 +52,7 @@ function Profissional({ formData, handleChange }) {
             <div className="row mb-3">
                 <div className="col-md-4">
                     <label>Data de Nascimento</label>
-                    <input type="date" className="form-control" name="dataNascimento" value={formData.dataNascimento} onChange={handleChange} />
+                    <input type="date" className="form-control" name="nascimento" value={formData.nascimento} onChange={handleChange} />
                 </div>
                 <div className="col-md-4">
                     <label>Telefone</label>

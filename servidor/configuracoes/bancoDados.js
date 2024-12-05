@@ -18,4 +18,4 @@ pool
   .catch((err) => console.error("Erro ao conectar ao banco de dados", err));
 
 // Exporta o pool para ser utilizado nas consultas
-module.exports = { pool };
+module.exports = pool;

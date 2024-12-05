@@ -20,8 +20,6 @@ function Cadastro() {
     uf: "",
     nascimento: "",
     telefone: "",
-    telefoneResponsavel: "",
-    email: "",
     responsavel_nome: "",
     responsavel_cpf: "",
     responsavel_telefone: "",
@@ -60,7 +58,7 @@ function Cadastro() {
     if (selectedOption === "Aluno") {
       try {
         const response = await fetch(
-          "http://localhost:3001/api/cadastro/aluno",
+          "http://localhost:3001/api/alunos",
           {
             method: "POST",
             headers: {
@@ -101,8 +99,6 @@ function Cadastro() {
       uf: "",
       nascimento: "",
       telefone: "",
-      telefoneResponsavel: "",
-      email: "",
       responsavel_nome: "",
       responsavel_cpf: "",
       responsavel_telefone: "",
